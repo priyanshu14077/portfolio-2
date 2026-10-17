@@ -470,3 +470,271 @@ a.pixel-btn {
   flex: none;
 }
 
+.content {
+  display: grid;
+  gap: 18px;
+  padding: 16px 18px 22px;
+}
+
+.content section,
+.content figure {
+  margin: 0;
+}
+
+.content h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-head);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sun);
+}
+
+.content p {
+  margin: 0;
+}
+
+.fine {
+  margin-top: 8px !important;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list li {
+  position: relative;
+  padding: 5px 0 5px 18px;
+  border-bottom: 1px dashed rgba(185, 205, 250, 0.25);
+}
+
+.list li:last-child {
+  border-bottom: 0;
+}
+
+.list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--sun);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tags span {
+  padding: 2px 8px;
+  background: var(--well);
+  border: 2px solid var(--line);
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.links,
+.posts {
+  display: grid;
+  gap: 8px;
+}
+
+.links a,
+.posts a {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 10px;
+  padding: 10px 12px;
+  background: var(--well);
+  border: 2px solid var(--line);
+  border-radius: 4px;
+  color: var(--ink);
+  text-decoration: none;
+  transition:
+    background 0.12s,
+    transform 0.12s;
+}
+
+.links a:hover,
+.posts a:hover {
+  background: var(--cobalt);
+  transform: translateX(2px);
+}
+
+.links b,
+.posts b {
+  font-weight: 600;
+}
+
+.links small {
+  grid-column: 1;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.links i {
+  grid-row: 1 / span 2;
+  grid-column: 2;
+  align-self: center;
+  font-style: normal;
+  color: var(--sun);
+}
+
+.posts a {
+  grid-template-columns: 1fr;
+}
+
+.posts time {
+  font-size: 12px;
+  color: var(--leaf);
+  filter: brightness(1.25);
+}
+
+.posts .tags span {
+  font-size: 11px;
+  padding: 0 6px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.stats.four {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.stats div {
+  padding: 10px;
+  background: var(--well);
+  border: 2px solid var(--line);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.stats b {
+  display: block;
+  font-family: var(--font-head);
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--sun);
+}
+
+.stats small {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.timeline {
+  margin: 0;
+  padding: 0 0 0 16px;
+  list-style: none;
+  border-left: 3px solid var(--line);
+}
+
+.timeline li {
+  position: relative;
+  display: grid;
+  padding: 0 0 14px 12px;
+}
+
+.timeline li::before {
+  content: '';
+  position: absolute;
+  left: -23px;
+  top: 5px;
+  width: 11px;
+  height: 11px;
+  background: var(--sun);
+  border: 2px solid var(--line);
+}
+
+.timeline time {
+  font-size: 12px;
+  color: var(--leaf);
+  filter: brightness(1.25);
+}
+
+.timeline small {
+  color: var(--muted);
+}
+
+.steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.steps > li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  padding: 12px;
+  background: var(--well);
+  border: 2px solid var(--line);
+  border-radius: 4px;
+}
+
+.steps .n {
+  font-family: var(--font-head);
+  color: var(--sun);
+  font-size: 18px;
+}
+
+.steps em {
+  display: block;
+  color: var(--muted);
+  font-style: normal;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+figure img,
+figure video {
+  display: block;
+  width: 100%;
+  border: 3px solid var(--line);
+  border-radius: 4px;
+  background: var(--line);
+}
+
+figcaption {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+}
+
+.clock {
+  padding: 16px;
+  background: var(--well);
+  border: 2px solid var(--line);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.clock b {
+  display: block;
+  font-family: var(--font-head);
+  font-weight: 400;
+  font-size: 40px;
+  color: var(--sun);
+  font-variant-numeric: tabular-nums;
+}
+
+.clock small {
+  color: var(--muted);
+}
