@@ -81,6 +81,10 @@ export const OBJECTS: WorldObject[] = [
   o('server_rack', 'server_rack', 110, 184),
   o('kiosk', 'kiosk', 160, 196),
   o('plant_work', 'plant_tall', 186, 214),
+  o('ops_table', 'ops_table', 50, 148),
+  o('water_cooler', 'water_cooler', 192, 98),
+  o('boxes', 'boxes', 136, 212),
+  o('trash_bin', 'trash_bin', 64, 120),
 
   // den
   o('sunflower_a', 'sunflower', 220, 66),

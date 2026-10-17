@@ -43,6 +43,10 @@ export const SPRITE_SIZES = {
   server_rack: [22, 44], // rack with blinking LED rows (engine may overlay blinks)
   kiosk: [16, 30], // "whoami" terminal on a stand
   plant_tall: [14, 30],
+  ops_table: [60, 26], // stand-up table: architecture printout, sticky notes, two mugs, a laptop
+  water_cooler: [12, 28], // office water cooler, blue bottle on top
+  boxes: [18, 18], // two stacked shipping boxes, top one taped, a cable coil
+  trash_bin: [8, 10], // small mesh bin with crumpled paper
 
   // den half
   bookshelf: [40, 46], // full of colourful spines
