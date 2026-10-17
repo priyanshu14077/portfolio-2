@@ -1,0 +1,1019 @@
+{
+  "fetchedAt": "2026-10-13",
+  "stations": [
+    {
+      "id": "morning",
+      "freq": 88.1,
+      "name": "some morning's",
+      "genre": "Morning",
+      "playlist": "PLKoFNuJHTvd4",
+      "tracks": [
+        {
+          "id": "WoP2R8FUW1w",
+          "title": "Can't Take My Eyes Off You",
+          "artist": "Joseph Vincent"
+        },
+        {
+          "id": "hGvl2rfJBU0",
+          "title": "Be More",
+          "artist": "Stephen Sanchez"
+        },
+        {
+          "id": "3CvK7ZLH8m0",
+          "title": "Shaayad",
+          "artist": "Taba Chake"
+        },
+        {
+          "id": "-qTESJa8zWY",
+          "title": "Kahani",
+          "artist": "Taba Chake"
+        },
+        {
+          "id": "5uBlLI1a_lA",
+          "title": "Aao Chalein",
+          "artist": "Taba Chake"
+        },
+        {
+          "id": "68-LByyHfpc",
+          "title": "Little Do You Know",
+          "artist": "Alex & Sierra"
+        },
+        {
+          "id": "cDrU3weV3_Y",
+          "title": "Put Your Records On",
+          "artist": "Corinne Bailey Rae"
+        },
+        {
+          "id": "EDpXR2_-WSY",
+          "title": "Sweet Disposition",
+          "artist": "The Temper Trap"
+        },
+        {
+          "id": "zf-4jaPdViY",
+          "title": "Ghum Hain Kahin",
+          "artist": "Papon"
+        },
+        {
+          "id": "sNJRShpbKws",
+          "title": "Taba Chake - Gum Ho Kahan (live in studio)",
+          "artist": "Taba Chake"
+        },
+        {
+          "id": "R9PNhbzzbLQ",
+          "title": "Din Dhalay",
+          "artist": "Bayaan"
+        },
+        {
+          "id": "lb8RFVjbyMw",
+          "title": "\"Zindagi Ne Zindagi Bhar Gham Diye\" Full Song The Train | Emraan Hashmi | Mithoon | KK | Zubeen Garg",
+          "artist": "T-Series"
+        },
+        {
+          "id": "4lZ2vJOatfU",
+          "title": "Hairat",
+          "artist": "Lucky Ali"
+        },
+        {
+          "id": "0z-gKgNuU94",
+          "title": "Dil Ghabraye (From \"I Want To Talk\")",
+          "artist": "Taba Chake"
+        },
+        {
+          "id": "E74V-X9AtAg",
+          "title": "Kuch Is Tarah",
+          "artist": "Atif Aslam"
+        },
+        {
+          "id": "oNJB2n5SuTk",
+          "title": "Kehna Hai Kehna Hai",
+          "artist": "Kishore Kumar"
+        },
+        {
+          "id": "p74imj6HgWo",
+          "title": "Aesthetically Toxic",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "YER--itLphg",
+          "title": "Sway",
+          "artist": "Dean Martin"
+        },
+        {
+          "id": "LshsmXXUrXU",
+          "title": "Misty (Remastered 2015)",
+          "artist": "Ella Fitzgerald"
+        },
+        {
+          "id": "CbiRKybmJDQ",
+          "title": "Aaj Jane Ki Zid Na Karo",
+          "artist": "Farida Khanum"
+        },
+        {
+          "id": "PytLKpvTTT4",
+          "title": "Walk With Me",
+          "artist": "Taba Chake"
+        },
+        {
+          "id": "zNhtz0Lygik",
+          "title": "Best Part (feat. H.E.R.)",
+          "artist": "Daniel Caesar"
+        },
+        {
+          "id": "quhGJMfbbOU",
+          "title": "The Shah’s Secret DM",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "w1Ipwm-Uy5s",
+          "title": "Blue in Green",
+          "artist": "Miles Davis"
+        },
+        {
+          "id": "wQssBleYQo4",
+          "title": "Farda",
+          "artist": "Bayaan"
+        },
+        {
+          "id": "K2tbQ_g2VbQ",
+          "title": "Kiss Me",
+          "artist": "Sixpence None The Richer"
+        },
+        {
+          "id": "GL-ayN9xpgQ",
+          "title": "Bubbly",
+          "artist": "Colbie Caillat"
+        },
+        {
+          "id": "PwLaLdh5y-I",
+          "title": "Rather Be Lonely",
+          "artist": "DON WEST"
+        },
+        {
+          "id": "DxsVgl2ybQk",
+          "title": "Qayde Se - Film Version",
+          "artist": "Pritam"
+        },
+        {
+          "id": "ayrvoSEckqk",
+          "title": "Tangerine",
+          "artist": "Noah Richardson"
+        },
+        {
+          "id": "mRNcPbCJNJ8",
+          "title": "Smooth Operator (Single Version)",
+          "artist": "Sade"
+        },
+        {
+          "id": "yGc6qKflSWk",
+          "title": "Who'll Stop The Rain",
+          "artist": "Creedence Clearwater Revival"
+        }
+      ]
+    },
+    {
+      "id": "jazz",
+      "freq": 91.5,
+      "name": "Sibil",
+      "genre": "Jazz",
+      "playlist": "OLAK5uy_m_qHECs8pZUhwONcXE7K4Q8I8gXCtN-Fs",
+      "tracks": [
+        {
+          "id": "npUn1sIujxU",
+          "title": "Sibil Season",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "2ThQk-Wlubg",
+          "title": "Rose For Myself",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "YzmRloVoCdM",
+          "title": "King Of The Curl",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "KRJDqJyPG8s",
+          "title": "Peak Persian Male",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "8E-bkOgMOns",
+          "title": "Two-Foot Sibil",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "f6CXCqQiPJ0",
+          "title": "Groomed To Rule",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "CazZyj0KOJw",
+          "title": "My Sibil My Rules",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "k5zOyWex_d0",
+          "title": "Handlebars Of State",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "-mjNil_X7hk",
+          "title": "Bushier Than Thou",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "PEXF9F7QgpA",
+          "title": "He Smelled His Own Rose",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "dETNCfZH42o",
+          "title": "Jewels & Whiskers",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "1kiNoWyYba4",
+          "title": "Sibil Tax",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "8uxLX8Nmmco",
+          "title": "Combed For Court",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "CbijLp9PjJU",
+          "title": "Born Regal",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "KYfg3-CodMg",
+          "title": "All In The Feather",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "6O1MFrLOGwE",
+          "title": "Sibil Before War",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "WcY43O5k3H0",
+          "title": "Vain & In Charge",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "lcjP_Bs1O0w",
+          "title": "The Curl Won Battles",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "g2uUOtXCIto",
+          "title": "No One Came Close",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "1SiTYUx76co",
+          "title": "A Rose A Day",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "E07tfOq_ggA",
+          "title": "Emperor Of Grooming",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "Xlkdv-Lisxc",
+          "title": "Whisker Diplomacy",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "zwxSPlPn3_Y",
+          "title": "Long Live The Curl",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "0q9EAE611wk",
+          "title": "His Best Feature",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "mpp2UHFIOfU",
+          "title": "Twirl Then Throne",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "ySBeQVWsaA8",
+          "title": "Undefeated Sibil",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "sVZd2DcMro0",
+          "title": "Sibil Goals",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "LTQcl7t7MPw",
+          "title": "Throne Flex",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "YyTClIycnKE",
+          "title": "Curl Up And Reign",
+          "artist": "We Are Jazz"
+        },
+        {
+          "id": "WRBj1LflAO0",
+          "title": "Smelled Better Than You",
+          "artist": "We Are Jazz"
+        }
+      ]
+    },
+    {
+      "id": "hiphop",
+      "freq": 94.3,
+      "name": "Cole Blooded",
+      "genre": "Hip hop",
+      "playlist": "PLfJuFxpilxeY",
+      "tracks": [
+        {
+          "id": "VldsWA0Rq6E",
+          "title": "Run A Train",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "rWBLVn0pol0",
+          "title": "Poor Thang",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "Yb92Q16oYRM",
+          "title": "Premeditated Murder",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "gNbj8InBpKU",
+          "title": "Too Deep for the Intro",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "-HZKUDXAAiE",
+          "title": "Return of Simba - J.Cole (lyrics)",
+          "artist": "Isaiah Morales"
+        },
+        {
+          "id": "z6Nc6FIROb4",
+          "title": "Grown Simba",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "qU3gOLGUV_o",
+          "title": "Can I Live",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "v5bXnmnfmrg",
+          "title": "Dead Presidents II",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "PAvpyQawO6w",
+          "title": "t h e . c l i m b . b a c k",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "e9brn98D7lA",
+          "title": "a m a r i",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "JmWwa1R9B8Q",
+          "title": "everybody dies",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "nxwCBrNSbOQ",
+          "title": "Rise and Shine",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "g1QobinRyaA",
+          "title": "False Prophets",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "w_rRwuM9k3Q",
+          "title": "Legacy",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "X6Kma_HdVHk",
+          "title": "She Knows",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "HzKt7zEuPuY",
+          "title": "Sacrifices",
+          "artist": "Dreamville"
+        },
+        {
+          "id": "75kmVwpNKgc",
+          "title": "Wet Dreamz",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "MVjPK_YxSII",
+          "title": "Kevin’s Heart",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "ciya_AQu25o",
+          "title": "KOD",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "ii6u1wSAu90",
+          "title": "1985 (Intro to “The Fall Off”)",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "HWuGhTkPNKg",
+          "title": "ATM",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "eUsQzDa7qyU",
+          "title": "cLOUDs",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "UWlibNTrg80",
+          "title": "Work Out",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "A2mJ05KoVjA",
+          "title": "Lights Please",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "97Nt5CaV0QU",
+          "title": "Under The Sun",
+          "artist": "Dreamville"
+        },
+        {
+          "id": "cXOr5cMhfas",
+          "title": "Heavens EP",
+          "artist": "Dreamville"
+        },
+        {
+          "id": "iNMB-tTp8Vk",
+          "title": "9 5 . s o u t h",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "XOM7nrXClj0",
+          "title": "Two Six",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "s_QGwQheU2s",
+          "title": "Port Antonio",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "UmiuDEojrd4",
+          "title": "2Face",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "6tjlU4w4fSo",
+          "title": "Love Yourz",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "ciFDZvemXNQ",
+          "title": "Black Friday II (feat. J. Cole)",
+          "artist": "Black Hippy"
+        },
+        {
+          "id": "j9z3gFp05OA",
+          "title": "Enchanted",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "EaDYCyYWPtQ",
+          "title": "Farewell",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "Uo5yIxTQI2k",
+          "title": "a p p l y i n g . p r e s s u r e",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "2hMy0rnHQv0",
+          "title": "Motiv8",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "-2F4VLEgVcI",
+          "title": "Life Sentence",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "T3bbIN_hNQ4",
+          "title": "Power Trip",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "XFtxAgHZII8",
+          "title": "i n t e r l u d e",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "O_VL92mfXwQ",
+          "title": "m y . l i f e",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "OblmFMRyQ9E",
+          "title": "MIDDLE CHILD",
+          "artist": "J. Cole"
+        },
+        {
+          "id": "tIRi44nVNCA",
+          "title": "Photograph",
+          "artist": "J. Cole"
+        }
+      ]
+    },
+    {
+      "id": "rock",
+      "freq": 98.7,
+      "name": "When Music Was Magic",
+      "genre": "'70s & '80s rock",
+      "playlist": "PLbFD7HPBU-g8",
+      "tracks": [
+        {
+          "id": "N_lSJ-0Gl7Q",
+          "title": "Since I've Been Loving You (Remaster)",
+          "artist": "Led Zeppelin"
+        },
+        {
+          "id": "UyOg0mt2R2k",
+          "title": "Babe I'm Gonna Leave You (Remaster)",
+          "artist": "Led Zeppelin"
+        },
+        {
+          "id": "NZdLPtDLH9U",
+          "title": "Dream On",
+          "artist": "Aerosmith"
+        },
+        {
+          "id": "yYDh7lyqwms",
+          "title": "All My Love (1990 Remaster)",
+          "artist": "Led Zeppelin"
+        },
+        {
+          "id": "iXQUu5Dti4g",
+          "title": "Stairway to Heaven (Remaster)",
+          "artist": "Led Zeppelin"
+        },
+        {
+          "id": "5eHkjPCGXKQ",
+          "title": "Immigrant Song (Remaster)",
+          "artist": "Led Zeppelin"
+        },
+        {
+          "id": "qztKD75J2BM",
+          "title": "Dancing Days (Remaster)",
+          "artist": "Led Zeppelin"
+        },
+        {
+          "id": "GGsmyqIrZRo",
+          "title": "That's the Way (Remaster)",
+          "artist": "Led Zeppelin"
+        },
+        {
+          "id": "iJp27QMR2KU",
+          "title": "Four Sticks (Remaster)",
+          "artist": "Led Zeppelin"
+        },
+        {
+          "id": "rw-I4BdVH-c",
+          "title": "Your Time Is Gonna Come",
+          "artist": "Led Zeppelin"
+        },
+        {
+          "id": "U9OzRzgtylY",
+          "title": "In My Time of Dying (Live from Earl's Court, 1975)",
+          "artist": "Led Zeppelin"
+        }
+      ]
+    },
+    {
+      "id": "mellow",
+      "freq": 101.9,
+      "name": "Making Peace With It",
+      "genre": "Mellow",
+      "playlist": "PLVbe8XER5IhIePtMUFut9GuEjiwl-yxSP",
+      "tracks": [
+        {
+          "id": "Ae5QiBz6x24",
+          "title": "Zindagi Jab Bhi",
+          "artist": "Talat Aziz"
+        },
+        {
+          "id": "_9hkXCYiEjc",
+          "title": "No One Noticed",
+          "artist": "The Marías"
+        },
+        {
+          "id": "8W7A8KlgBJw",
+          "title": "Sleep On The Floor",
+          "artist": "The Lumineers"
+        },
+        {
+          "id": "IRfQI9Y6EK0",
+          "title": "Matilda",
+          "artist": "Harry Styles"
+        },
+        {
+          "id": "EM1t8H_PE78",
+          "title": "Scott Street",
+          "artist": "Phoebe Bridgers"
+        },
+        {
+          "id": "-Eg8sUe5NYU",
+          "title": "Cherry Wine (Live)",
+          "artist": "Hozier"
+        },
+        {
+          "id": "I8a3yGcdc3E",
+          "title": "Rivers and Roads",
+          "artist": "The Head And The Heart"
+        },
+        {
+          "id": "uPxvvmlkNHw",
+          "title": "Like Real People Do",
+          "artist": "Hozier"
+        },
+        {
+          "id": "gSdjztTxYgk",
+          "title": "Little Talks",
+          "artist": "Of Monsters and Men"
+        },
+        {
+          "id": "MYXbL0xqXPc",
+          "title": "Stubborn Love",
+          "artist": "The Lumineers"
+        },
+        {
+          "id": "ZVgHPSyEIqk",
+          "title": "Let Down (Remastered)",
+          "artist": "Radiohead"
+        },
+        {
+          "id": "uhm7hiJLnAg",
+          "title": "The Girl",
+          "artist": "City and Colour"
+        },
+        {
+          "id": "oKYp4zor1zw",
+          "title": "Oceans",
+          "artist": "SeafretOfficial"
+        },
+        {
+          "id": "3AUtk1wJJBc",
+          "title": "All I Want",
+          "artist": "Kodaline"
+        },
+        {
+          "id": "6bGmUTAfh-A",
+          "title": "Let Her Go",
+          "artist": "Passenger"
+        },
+        {
+          "id": "Sy6-NuS-zp4",
+          "title": "Someone New",
+          "artist": "Hozier"
+        },
+        {
+          "id": "pmkQlJpIf-k",
+          "title": "Dasht-e-Tanhai",
+          "artist": "Meesha Shafi"
+        },
+        {
+          "id": "byrZTho6jtI",
+          "title": "Ours",
+          "artist": "The Honey Trees"
+        },
+        {
+          "id": "sVCbuuEw4_U",
+          "title": "Who We Are",
+          "artist": "Hozier"
+        },
+        {
+          "id": "aDLF9DT1uls",
+          "title": "Tum Aye Ho Na Shab-e-Intezar",
+          "artist": "Mehdi Hassan"
+        },
+        {
+          "id": "PKp121E9E2A",
+          "title": "It Will Come Back",
+          "artist": "Hozier"
+        },
+        {
+          "id": "ggTNavcl0TE",
+          "title": "Gulon Main Rang",
+          "artist": "Ali Sethi"
+        },
+        {
+          "id": "E-47P6c32ko",
+          "title": "Aye Kuchh Abr",
+          "artist": "Music Live"
+        },
+        {
+          "id": "nkFXPmzvTUs",
+          "title": "Mujhse Pehli Si Mohabbat",
+          "artist": "Noor Jehan"
+        },
+        {
+          "id": "aZ4qpbXuSwQ",
+          "title": "Mera Yaar (From \"Bhaag Milkha Bhaag\")",
+          "artist": "Shankar Ehsaan Loy"
+        },
+        {
+          "id": "UMwbh_Nw9xM",
+          "title": "Khamaaj",
+          "artist": "Shafqat Amanat Ali Official"
+        },
+        {
+          "id": "cVbsm06tPQc",
+          "title": "Ae Ajnabi",
+          "artist": "Udit Narayan"
+        },
+        {
+          "id": "NtVQkUdyapw",
+          "title": "Mr. Loverman",
+          "artist": "Ricky Montgomery"
+        },
+        {
+          "id": "kzy0ujPJ7JU",
+          "title": "Money",
+          "artist": "JID"
+        },
+        {
+          "id": "Qp6D71kQRhA",
+          "title": "My Way",
+          "artist": "Frank Sinatra"
+        },
+        {
+          "id": "xzsIhN3mf-E",
+          "title": "Mine",
+          "artist": "Bazzi"
+        },
+        {
+          "id": "pRIZohFFOMo",
+          "title": "Someone You Loved",
+          "artist": "Lewis Capaldi"
+        },
+        {
+          "id": "XSqx8Ibkzrk",
+          "title": "Line Without a Hook",
+          "artist": "Ricky Montgomery"
+        },
+        {
+          "id": "d5ZbO8O7WKI",
+          "title": "Beautiful",
+          "artist": "Bazzi"
+        },
+        {
+          "id": "H0p1h0lL3sw",
+          "title": "Wondering Why",
+          "artist": "Red Clay Strays"
+        },
+        {
+          "id": "5LxzQCZRGFc",
+          "title": "Tay Hai",
+          "artist": "Ankit Tiwari"
+        },
+        {
+          "id": "ys4qAwWgd-w",
+          "title": "ALVIDA",
+          "artist": "Nikhil D’souza"
+        },
+        {
+          "id": "kL2UG7bNoGA",
+          "title": "Jaane De",
+          "artist": "Atif Aslam"
+        },
+        {
+          "id": "H9NJenpBV2I",
+          "title": "Easy On Me",
+          "artist": "Adele"
+        },
+        {
+          "id": "TA1W-pHNKl8",
+          "title": "a thousand years",
+          "artist": "Christina Perri"
+        },
+        {
+          "id": "mvEtJ6K4mOw",
+          "title": "Still Falling For You (From \"Bridget Jones's Baby\")",
+          "artist": "Ellie Goulding"
+        },
+        {
+          "id": "b2gTGEeB12w",
+          "title": "Like I'm Gonna Lose You",
+          "artist": "Meghan Trainor"
+        },
+        {
+          "id": "49DL70klZjI",
+          "title": "Because of You",
+          "artist": "Kelly Clarkson"
+        },
+        {
+          "id": "6XRZF7bvs9U",
+          "title": "Hold On",
+          "artist": "Chord Overstreet"
+        },
+        {
+          "id": "arj4BDdz6qc",
+          "title": "Hold Me While You Wait",
+          "artist": "Lewis Capaldi"
+        },
+        {
+          "id": "lJ0-i8u8XlM",
+          "title": "Bruises",
+          "artist": "Lewis Capaldi"
+        },
+        {
+          "id": "fmAquKc5FPA",
+          "title": "Somebody's Me",
+          "artist": "Enrique Iglesias"
+        },
+        {
+          "id": "Ne7tcjXTPos",
+          "title": "Hum Jee Lenge",
+          "artist": "Roxen"
+        },
+        {
+          "id": "hP_RUb0VlCE",
+          "title": "Put A Little Love On Me",
+          "artist": "Niall Horan"
+        },
+        {
+          "id": "6bobs0izirc",
+          "title": "Dancing On My Own (Acoustic)",
+          "artist": "Calum Scott"
+        },
+        {
+          "id": "2Kiob5f9A1g",
+          "title": "You Are The Reason",
+          "artist": "Calum Scott"
+        },
+        {
+          "id": "JtEmcNFa-2g",
+          "title": "Heart's on Fire (Acoustic)",
+          "artist": "Passenger"
+        },
+        {
+          "id": "pOLMGTtphCc",
+          "title": "Violent Crimes",
+          "artist": "Kanye West"
+        },
+        {
+          "id": "6EhRUgi6164",
+          "title": "Musafir",
+          "artist": "Taba Chake"
+        },
+        {
+          "id": "cBYKAvw_4uM",
+          "title": "My House Is Not A Home",
+          "artist": "d4vd"
+        }
+      ]
+    },
+    {
+      "id": "late",
+      "freq": 104.5,
+      "name": "sleep my child",
+      "genre": "Late night",
+      "playlist": "PLtxlbLg2oOqfjAtQVGFoIxfqw9RnoXSlP",
+      "tracks": [
+        {
+          "id": "Nv3bQao8l3I",
+          "title": "Nothing",
+          "artist": "Bruno Major"
+        },
+        {
+          "id": "5e1zT7miep8",
+          "title": "rises the moon",
+          "artist": "liana flores"
+        },
+        {
+          "id": "mcdO9UP0hp8",
+          "title": "Je te laisserai des mots",
+          "artist": "Patrick Watson"
+        },
+        {
+          "id": "nLnDm8t9Mng",
+          "title": "Fourth of July",
+          "artist": "Sufjan Stevens"
+        },
+        {
+          "id": "qypYii_GXtk",
+          "title": "next to you",
+          "artist": "JVKE"
+        },
+        {
+          "id": "sPV_t8YMW_k",
+          "title": "Home",
+          "artist": "Edith Whiskers"
+        },
+        {
+          "id": "Qy9LTRu89FA",
+          "title": "My Love Mine All Mine",
+          "artist": "Mitski"
+        },
+        {
+          "id": "XeskZsa7GbI",
+          "title": "Home",
+          "artist": "Bruno Major"
+        },
+        {
+          "id": "xITJ35Kwpv4",
+          "title": "her",
+          "artist": "JVKE"
+        },
+        {
+          "id": "k7kzc3Nof08",
+          "title": "I Love You So",
+          "artist": "The Walters"
+        },
+        {
+          "id": "cULQhvuq1Zc",
+          "title": "Sweater Weather",
+          "artist": "The Neighbourhood"
+        },
+        {
+          "id": "38ICl7_UvEI",
+          "title": "I Think I Like When It Rains",
+          "artist": "WILLIS"
+        },
+        {
+          "id": "NtVQkUdyapw",
+          "title": "Mr. Loverman",
+          "artist": "Ricky Montgomery"
+        },
+        {
+          "id": "HCwUQRECknw",
+          "title": "ceilings",
+          "artist": "Lizzy McAlpine"
+        },
+        {
+          "id": "YPeHGoGhHxg",
+          "title": "Those Eyes",
+          "artist": "New West"
+        },
+        {
+          "id": "FJX0JPXD2nM",
+          "title": "we fell in love in october",
+          "artist": "girl in red"
+        },
+        {
+          "id": "znvky0Uq8qc",
+          "title": "Until I Found You",
+          "artist": "Stephen Sanchez"
+        },
+        {
+          "id": "IDIIFIHXJjI",
+          "title": "the lepidopterist",
+          "artist": "beetlebug"
+        },
+        {
+          "id": "cy57UnoAgCY",
+          "title": "Escapism (feat. AJ Michalka, Zach Callison & Grace Rolek)",
+          "artist": "Steven Universe Music"
+        },
+        {
+          "id": "yrXKJo2PPxo",
+          "title": "Time Adventure",
+          "artist": "MathematicPony"
+        },
+        {
+          "id": "DJCB1ZlseJ8",
+          "title": "Show Me How",
+          "artist": "Men I Trust"
+        },
+        {
+          "id": "Kf5pXDhx5Vc",
+          "title": "End of Beginning",
+          "artist": "Djo Music"
+        }
+      ]
+    }
+  ]
+}
