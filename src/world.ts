@@ -23,7 +23,7 @@ export interface WorldObject {
   on?: string
 }
 
-export type Action = 'pet' | 'night' | 'ball' | 'radio'
+export type Action = 'pet' | 'night' | 'ball' | 'radio' | 'quip'
 
 export interface Hotspot {
   id: string
@@ -33,6 +33,7 @@ export interface Hotspot {
   face: HeroDir
   panel?: PanelKey
   action?: Action
+  quips?: string[] // lines cycled by the 'quip' action
   zone: 'work' | 'den'
 }
 
@@ -65,6 +66,8 @@ export const OBJECTS: WorldObject[] = [
   o('jersey', 'jersey_frame', 274, 16, 'wall'),
   o('window_b', 'window_day', 302, 14, 'wall'),
   o('sports_rack', 'sports_rack', 350, 16, 'wall'),
+  o('string_lights', 'string_lights', 228, 2, 'wall'),
+  o('cable_tray', 'cable_tray', 8, 3, 'wall'),
 
   // rugs
   o('rug_work', 'rug_work', 24, 140, 'floor'),
@@ -80,6 +83,12 @@ export const OBJECTS: WorldObject[] = [
   o('server_rack', 'server_rack', 110, 184),
   o('kiosk', 'kiosk', 160, 196),
   o('plant_work', 'plant_tall', 186, 214),
+  o('ops_table', 'ops_table', 50, 148),
+  o('water_cooler', 'water_cooler', 192, 98),
+  o('boxes', 'boxes', 136, 212),
+  o('trash_bin', 'trash_bin', 64, 120),
+  o('whiteboard_easel', 'whiteboard_easel', 126, 142),
+  o('coffee_station', 'coffee_station', 14, 142),
 
   // den
   o('sunflower_a', 'sunflower', 220, 66),
@@ -93,6 +102,15 @@ export const OBJECTS: WorldObject[] = [
   o('tv', 'tv_stand', 284, 208),
   o('ball', 'basketball', 352, 222, 'obj', { solid: false }),
   o('plant_den', 'plant_tall', 380, 214),
+  o('bean_bag', 'bean_bag', 342, 128),
+  o('cat_tree', 'cat_tree', 368, 150),
+  o('cat_bowl', 'cat_bowl', 348, 188, 'obj', { solid: false }),
+  o('record_crate', 'record_crate', 220, 216),
+  o('floor_cushion', 'floor_cushion', 246, 230, 'obj', { solid: false }),
+  o('fish_tank', 'fish_tank', 338, 70),
+  o('shoe_rack', 'shoe_rack', 214, 192),
+  o('monstera', 'monstera', 210, 122),
+  o('speaker_shelf', 'speaker_shelf', 284, 72),
 ]
 
 export const byId = Object.fromEntries(OBJECTS.map((ob) => [ob.id, ob])) as Record<string, WorldObject>
@@ -151,6 +169,22 @@ export const HOTSPOTS: Hotspot[] = [
   h('lamp', 'lamp', 'Lamp', [244, 156], 'left', 'den', { action: 'night' }),
   h('ball', 'ball', 'Basketball', [357, 212], 'down', 'den', { action: 'ball' }),
   h('jersey', 'jersey', 'Luka 77', [285, 108], 'up', 'den', { panel: 'sports' }),
+  h('coffee', 'coffee_station', 'Coffee', [40, 160], 'left', 'work', {
+    action: 'quip',
+    quips: ['Coffee: the real orchestration layer.', 'Second cup. The PR reviews itself, right?', 'Out of beans. Filing a P1.'],
+  }),
+  h('easel', 'whiteboard_easel', 'Whiteboard', [138, 178], 'up', 'work', {
+    action: 'quip',
+    quips: ['Boxes and arrows. The arrows are where the bugs live.', 'If it does not fit on a whiteboard, it does not fit in prod.'],
+  }),
+  h('fish', 'fish_tank', 'Fish tank', [352, 104], 'up', 'den', {
+    action: 'quip',
+    quips: ['The fish are called Prod and Staging. Staging keeps eating.', 'They swim in circles. Like a retry loop.'],
+  }),
+  h('shoes', 'shoe_rack', 'Sneakers', [226, 212], 'up', 'den', {
+    action: 'quip',
+    quips: ['Court shoes. Badminton Saturday, basketball Sunday.', 'Laces double-knotted. Deploys too.'],
+  }),
 ]
 
 export const LIGHTS: Light[] = [
@@ -165,6 +199,9 @@ export const LIGHTS: Light[] = [
   { x: 85, y: 200, r: 20, c: '255,220,120' },
   { x: 121, y: 196, r: 22, c: '90,255,140' }, // server LEDs
   { x: 317, y: 82, r: 30, c: '255,190,90', when: 'radio' },
+  { x: 352, y: 82, r: 24, c: '110,200,255' }, // fish tank
+  // fairy lights along the den wall
+  ...[240, 266, 292, 318, 344, 370].map((x) => ({ x, y: 8, r: 14, c: '255,214,140' })),
 ]
 
 export const SPAWN: [number, number] = [200, 160]

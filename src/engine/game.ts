@@ -116,19 +116,20 @@ export function createGame(d: GameDeps) {
     canvas.height = Math.round(vh * dpr)
     canvas.style.width = vw + 'px'
     canvas.style.height = vh + 'px'
-    const fit = Math.min(vw / W, (vh - (vw > 640 ? 72 : 0)) / H)
-    // integer scale keeps every art pixel the same size; phones get 2x and a scrolling camera
-    scale = Math.max(2, Math.floor(fit))
-    if (fit < 2 && vw / W >= 1.5) scale = fit
+    // cover the whole viewport; the camera follows the hero over whatever is cropped.
+    // Round up to whole device pixels (every art pixel the same size) when that crops
+    // under 8% more; otherwise use the exact cover scale, whose uneven pixels are a
+    // single device pixel apart and barely visible.
+    const cover = Math.max((vw * dpr) / W, (vh * dpr) / H)
+    scale = (Math.ceil(cover) / cover <= 1.08 ? Math.ceil(cover) : cover) / dpr
     updateCamera(1)
   }
 
   function updateCamera(k: number) {
     const viewW = vw / scale
     const viewH = vh / scale
-    const tx = viewW >= W ? (W - viewW) / 2 : Math.max(0, Math.min(W - viewW, player.x - viewW / 2))
-    const top = vw > 640 ? 72 / scale : 0
-    const ty = viewH - top >= H ? (H - viewH - top) / 2 : Math.max(-top, Math.min(H - viewH, player.y - 30 - viewH / 2))
+    const tx = Math.max(0, Math.min(W - viewW, player.x - viewW / 2))
+    const ty = Math.max(0, Math.min(H - viewH, player.y - 40 - viewH / 2))
     camX += (tx - camX) * k
     camY += (ty - camY) * k
   }
@@ -154,6 +155,51 @@ export function createGame(d: GameDeps) {
     b.fillStyle = 'rgba(10,36,102,0.35)'
     b.fillRect(DEN_X, WALL_H, 1, H - WALL_H - 10)
     for (const ob of OBJECTS) if (ob.layer !== 'obj' && !DYNAMIC.has(ob.id)) b.drawImage(sprites[ob.s].img, ob.x, ob.y)
+
+    // ambient occlusion where the floor meets the back wall
+    b.fillStyle = 'rgba(10,36,102,0.22)'
+    b.fillRect(8, WALL_H, W - 16, 2)
+    b.fillStyle = 'rgba(10,36,102,0.1)'
+    b.fillRect(8, WALL_H + 2, W - 16, 2)
+
+    // contact shadows under floor objects, nudged right/down away from the top-left light.
+    // Drawn opaque on their own layer first so overlapping shadows don't stack.
+    const sh = document.createElement('canvas')
+    sh.width = W
+    sh.height = H
+    const s = sh.getContext('2d')!
+    s.fillStyle = '#0a2466'
+    for (const ob of OBJECTS) {
+      if (ob.layer !== 'obj' || ob.on) continue
+      const [x, y, w, h] = rectOf(ob)
+      pixelOval(s, x + w / 2 + 2, y + h - 1, w / 2 + 1, Math.max(2, Math.min(5, Math.round(h * 0.12))))
+    }
+    b.globalAlpha = 0.24
+    b.drawImage(sh, 0, 0)
+    b.globalAlpha = 1
+  }
+
+  function pixelOval(g: CanvasRenderingContext2D, cx: number, cy: number, rx: number, ry: number) {
+    for (let dy = -ry; dy <= ry; dy++) {
+      const half = Math.round(rx * Math.sqrt(1 - (dy / (ry + 0.5)) ** 2))
+      g.fillRect(Math.round(cx - half), Math.round(cy + dy), half * 2, 1)
+    }
+  }
+
+  // daylight falling from the two den windows onto the floor, stepped like pixel art
+  function drawSunlight() {
+    const a = 1 - state.nightAmt
+    if (a <= 0) return
+    ctx.fillStyle = `rgba(255,240,190,${0.13 * a})`
+    for (const id of ['window_a', 'window_b'] as const) {
+      const [x, , w] = rectOf(byId[id])
+      for (let y = WALL_H; y < WALL_H + 46; y += 2) {
+        const k = y - WALL_H
+        const skew = Math.round(k * 0.45)
+        const narrow = Math.round(k * 0.12)
+        ctx.fillRect(x + 4 + skew + narrow, y, w - 8 - narrow * 2, 2)
+      }
+    }
   }
 
   // --- helpers ------------------------------------------------------------
@@ -226,6 +272,8 @@ export function createGame(d: GameDeps) {
   }
 
   // --- interactions ---------------------------------------------------------
+  const quipCount = new Map<string, number>()
+
   function interact(h: Hotspot) {
     player.dir = h.face
     sfx.blip()
@@ -249,6 +297,13 @@ export function createGame(d: GameDeps) {
         sfx.bounce()
         say(['Dončić step-back. Nothing but net.', 'Luka would have hit that from the logo.', 'Brick. Back to work.'][Math.floor(Math.random() * 3)])
         return
+      case 'quip': {
+        const lines = h.quips ?? []
+        const n = (quipCount.get(h.id) ?? 0) + 1
+        quipCount.set(h.id, n)
+        if (lines.length) say(lines[(n - 1) % lines.length])
+        return
+      }
       case 'radio':
         if (!radio.state.station)
           radio.toggle()?.catch(() => d.toast('YouTube is blocked here, so the radio can’t play.'))
@@ -380,9 +435,10 @@ export function createGame(d: GameDeps) {
     ctx.setTransform(1, 0, 0, 1, 0, 0)
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     ctx.imageSmoothingEnabled = false
-    ctx.setTransform(dpr * scale, 0, 0, dpr * scale, -camX * dpr * scale, -camY * dpr * scale)
+    ctx.setTransform(dpr * scale, 0, 0, dpr * scale, Math.round(-camX * dpr * scale), Math.round(-camY * dpr * scale))
 
     ctx.drawImage(bg, 0, 0)
+    drawSunlight()
     const night = state.nightAmt > 0.5
     for (const id of ['window_a', 'window_b'] as const) spr(night ? 'window_night' : 'window_day', byId[id].x, byId[id].y)
     spr(content.availability.open ? 'sign_open' : 'sign_off', byId.sign.x, byId.sign.y)
@@ -397,7 +453,7 @@ export function createGame(d: GameDeps) {
       let base = ob.y + hgt
       if (ob.on) base = byId[ob.on].y + rectOf(byId[ob.on])[3] + 0.5
       let id: SpriteId = ob.s
-      if (ob.id === 'radio' && radio.state.playing) id = Math.floor(state.t * 4) % 2 ? 'radio_1' : 'radio_0'
+      if (ob.id === 'radio' && radio.state.playing) id = 'radio_1'
       if (ob.id === 'lamp') id = state.night ? 'lamp_on' : 'lamp_off'
       let y = ob.y
       if (ob.id === 'ball' && state.ballT >= 0) y -= Math.abs(Math.sin(state.ballT * Math.PI * 2.5)) * 14 * (1 - state.ballT / 1.2)
@@ -416,7 +472,11 @@ export function createGame(d: GameDeps) {
       base: player.y,
       draw: () => {
         ctx.fillStyle = 'rgba(10,36,102,0.28)'
-        ctx.fillRect(Math.round(player.x - 5), Math.round(player.y - 2), 10, 2)
+        const px = Math.round(player.x)
+        const py = Math.round(player.y)
+        ctx.fillRect(px - 4, py - 2, 8, 1)
+        ctx.fillRect(px - 5, py - 1, 11, 1)
+        ctx.fillRect(px - 3, py, 7, 1)
         const bob = !player.moving && !reduceMotion && Math.floor(state.t * 2) % 2 ? 1 : 0
         spr(heroFrame(), player.x - HERO_SIZE[0] / 2, player.y - HERO_SIZE[1] + bob)
       },

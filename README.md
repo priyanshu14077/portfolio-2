@@ -48,7 +48,7 @@ flowchart TD
 
     subgraph Art
         contract[art/contract.ts<br/>sprite ids, sizes, palette]
-        sprites[art/sprites.ts<br/>code-drawn placeholder art]
+        sprites[art/sprites.ts<br/>merges art/sprites/*: room, wall,<br/>work, den, hero, extra]
         draw[art/draw.ts + art/font.ts<br/>pixel helpers, 3x5 font]
     end
 
@@ -121,11 +121,13 @@ flowchart LR
     kind -- night --> lamp[Toggle night mode]
     kind -- ball --> ball[Bounce + quip]
     kind -- radio --> yt[Tune a YouTube station, then open the music panel]
+    kind -- quip --> quip[Cycle the prop's one-liners in a speech bubble]
 ```
 
 ### Rendering
 
-- The world is 400×260 art pixels. The canvas scales it by the largest integer that fits (at least 2x), with image smoothing off and device pixel ratio capped at 2. When the room doesn't fit, as on phones, the camera follows the hero.
+- The world is 400×260 art pixels. The canvas scales it to cover the whole viewport, with image smoothing off and device pixel ratio capped at 2. The scale rounds up to whole device pixels when that crops under 8% more, so art pixels stay even; otherwise it uses the exact cover scale. The camera follows the hero over whatever is cropped and snaps to device pixels.
+- Every floor object gets a soft contact shadow, offset away from the top-left light. Shadows are drawn once onto their own layer, so overlaps don't stack, then baked into the floor. Daylight from the den windows falls on the floor and fades out at night.
 - The floor, the walls and anything static that hangs on them are baked once to an offscreen canvas. Windows, the door sign and the clock are drawn every frame because they change with the time of day.
 - Floor objects and the hero are sorted by their bottom edge, so you can walk behind a desk and in front of it.
 - Night mode draws a dark overlay on a second canvas, cuts radial holes in it for each light with `destination-out`, then adds a soft glow pass on top.
@@ -155,7 +157,8 @@ src/
   world.ts            room layout, hotspots, collision boxes, lights
   style.css           cobalt + sunflower theme
   data/radio.json     YouTube stations
-  art/                sprite contract, pixel helpers, font, sprites, preview
+  art/                sprite contract, pixel helpers, font, preview
+  art/sprites/        code-drawn art, one module per area: room, wall, work, den, hero, extra
   engine/             game loop, collision/pathfinding, panels, radio, audio
 ```
 

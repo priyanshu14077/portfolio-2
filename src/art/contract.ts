@@ -31,6 +31,7 @@ export const SPRITE_SIZES = {
   window_night: [40, 30], // dark blue, moon, stars, lit skyline windows
   jersey_frame: [22, 28], // framed blue/white basketball jersey number 77
   sports_rack: [28, 30], // wall rack: badminton racket + cricket bat crossed
+  string_lights: [156, 10], // warm fairy lights draped along the top of the den wall
 
   // work half (floor, anchored bottom-centre)
   ws_proploy: [52, 40], // desk + monitor reading "PROPLOY" + chair in front
@@ -42,6 +43,10 @@ export const SPRITE_SIZES = {
   server_rack: [22, 44], // rack with blinking LED rows (engine may overlay blinks)
   kiosk: [16, 30], // "whoami" terminal on a stand
   plant_tall: [14, 30],
+  ops_table: [60, 26], // stand-up table: architecture printout, sticky notes, two mugs, a laptop
+  water_cooler: [12, 28], // office water cooler, blue bottle on top
+  boxes: [18, 18], // two stacked shipping boxes, top one taped, a cable coil
+  trash_bin: [8, 10], // small mesh bin with crumpled paper
 
   // den half
   bookshelf: [40, 46], // full of colourful spines
@@ -55,6 +60,20 @@ export const SPRITE_SIZES = {
   lamp_on: [12, 36], // floor lamp, warm shade lit
   lamp_off: [12, 36],
   basketball: [10, 10],
+  bean_bag: [26, 18], // slouchy sunflower-yellow bean bag
+  cat_tree: [16, 34], // scratching post with two platforms and a dangling toy
+  cat_bowl: [10, 5], // food bowl with kibble
+  record_crate: [20, 16], // wooden crate of vinyl records, sleeves visible
+  floor_cushion: [20, 10], // flat round floor cushion
+
+  // extras (src/art/sprites/extra.ts)
+  cable_tray: [164, 6], // wall: ceiling-height cable tray running along the work wall, cables drooping
+  whiteboard_easel: [24, 30], // floor: rolling whiteboard with a system diagram, marker tray
+  coffee_station: [20, 24], // floor: small cabinet with an espresso machine, mugs, a sunflower sticker
+  fish_tank: [28, 26], // floor: aquarium on a wooden stand, two orange fish, plants, bubbles
+  shoe_rack: [24, 14], // floor: low rack with sneakers (one pair of basketball shoes)
+  monstera: [18, 26], // floor: big-leaf monstera in a cobalt pot
+  speaker_shelf: [16, 22], // floor: small shelf with a bookshelf speaker and a vinyl sleeve leaning
 
   // cat (sits on the sofa; engine positions it)
   cat_sleep_0: [16, 9], // curled orange cat

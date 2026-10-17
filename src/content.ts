@@ -52,12 +52,12 @@ export const CONTENT: Content = {
             },
             {
               when: 'Jun 2025 – Jan 2026',
-              what: 'Dunne · Full-stack engineer & team lead',
-              note: 'Led six. Moved a Shopify jewellery store to a Next.js marketplace with a configurator.',
+              what: 'Dunne · Full-stack engineer, sole engineer',
+              note: 'Moved a Shopify jewellery store to a Next.js marketplace with a configurator.',
             },
             {
               when: 'Oct 2025 – now',
-              what: 'Proploy · Forward Deployed Engineer & team lead',
+              what: 'Proploy · Forward Deployed Engineer',
               note: 'The switch. From building to spec, to owning the outcome with the people who use it.',
             },
           ],
@@ -130,11 +130,11 @@ export const CONTENT: Content = {
         {
           type: 'stats',
           items: [
-            { value: '3d → 15s', label: 'research turnaround, Proploy' },
+            { value: '3d → 20s', label: 'catalog ingestion per product, Proploy' },
             { value: '<50ms', label: 'catalog search latency, Proploy' },
-            { value: '−40%', label: 'infrastructure cost, Proploy' },
-            { value: '1,000+', label: 'concurrent users, Dunne' },
-            { value: '99.9%', label: 'uptime, Dunne' },
+            { value: '−90%', label: 'Cloud Run spend, $562 → ~$56 a month, Proploy' },
+            { value: '1,000+', label: 'shoppers tracked, Dunne' },
+            { value: '99.99%', label: 'uptime over two months, Dunne' },
             { value: '−85%', label: 'image load, 3s+ to <200ms, Dunne' },
           ],
         },
@@ -144,7 +144,7 @@ export const CONTENT: Content = {
     proploy: {
       title: 'Proploy',
       icon: '◆',
-      subtitle: 'Forward Deployed Engineer & team lead · Oct 2025 – now',
+      subtitle: 'Forward Deployed Engineer · Oct 2025 – now',
       sections: [
         {
           type: 'video',
@@ -160,7 +160,7 @@ export const CONTENT: Content = {
         {
           type: 'text',
           title: 'My role',
-          body: 'I joined in October 2025 and became lead of a team of five. I owned the agent service, the retrieval layer it depends on, the stream from agent to browser, and the Cloud Run deploy of the Python services.',
+          body: 'I joined in October 2025, one of three engineers on a team of five, and I review nearly every PR. I owned the agent service, the retrieval layer it depends on, the stream from agent to browser, and the Cloud Run deploy of the Python services.',
         },
         {
           type: 'list',
@@ -186,9 +186,9 @@ export const CONTENT: Content = {
           type: 'stats',
           title: 'Results',
           items: [
-            { value: '3d → 15s', label: 'research turnaround' },
+            { value: '3d → 20s', label: 'catalog ingestion per product' },
             { value: '<50ms', label: 'catalog search' },
-            { value: '−40%', label: 'infrastructure cost' },
+            { value: '−90%', label: 'Cloud Run spend, $562 → ~$56 a month' },
             { value: '~1,900', label: 'automated tests' },
           ],
         },
@@ -213,18 +213,18 @@ export const CONTENT: Content = {
     dunne: {
       title: 'Dunne',
       icon: '◇',
-      subtitle: 'Full-stack engineer & team lead · Jun 2025 – Jan 2026',
+      subtitle: 'Full-stack engineer, sole engineer · Jun 2025 – Jan 2026',
       sections: [
         { type: 'image', src: '/media/dunne.jpg', alt: 'The Dunne jewellery store', caption: 'dunne.co.in' },
         {
           type: 'text',
-          body: 'Dunne ran its jewellery store on Shopify. I led a team of six to replace it with a Next.js marketplace web app, plus a configurator where customers design their own piece. Images were taking 3s+ to load, so I rebuilt the delivery path on Nginx and AWS CloudFront.',
+          body: 'Dunne ran its jewellery store on Shopify. As the only engineer, I replaced it with a Next.js marketplace web app, plus a configurator where customers design their own piece. Images were taking 3s+ to load, so I rebuilt the delivery path on Nginx and AWS CloudFront.',
         },
         {
           type: 'stats',
           items: [
-            { value: '1,000+', label: 'concurrent users' },
-            { value: '99.9%', label: 'uptime' },
+            { value: '1,000+', label: 'shoppers tracked' },
+            { value: '99.99%', label: 'uptime over two months' },
             { value: '<200ms', label: 'image load, from 3s+' },
           ],
         },
@@ -313,7 +313,7 @@ export const CONTENT: Content = {
         {
           type: 'stats',
           items: [
-            { value: '<800ms', label: 'latency target' },
+            { value: '~1.5s', label: 'measured response time, 1.2s target' },
             { value: '2', label: 'languages: Hindi, English' },
             { value: 'Live', label: 'barge-in mid-sentence' },
           ],
