@@ -947,3 +947,85 @@ figcaption {
   }
 }
 
+/* toasts */
+#toasts {
+  position: fixed;
+  left: 50%;
+  bottom: 56px;
+  z-index: 30;
+  transform: translateX(-50%);
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+}
+
+.toast {
+  padding: 8px 14px;
+  background: var(--cobalt-deep);
+  border: 2px solid var(--line);
+  box-shadow: 0 0 0 2px var(--sun);
+  border-radius: 4px;
+  animation: toast-in 0.2s both;
+}
+
+.toast.out {
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.noscript {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.noscript a {
+  color: var(--sun);
+}
+
+@media (max-width: 640px) {
+  .buttons {
+    top: 92px;
+    left: 12px;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+  .pixel-btn {
+    height: 36px;
+    padding: 0 10px;
+  }
+  .pixel-btn.icon {
+    width: 36px;
+  }
+  #btn-menu span,
+  .status-btn span {
+    display: none;
+  }
+  .who {
+    right: 12px;
+  }
+  .stats,
+  .stats.four {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
