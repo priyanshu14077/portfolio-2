@@ -116,19 +116,19 @@ export function createGame(d: GameDeps) {
     canvas.height = Math.round(vh * dpr)
     canvas.style.width = vw + 'px'
     canvas.style.height = vh + 'px'
-    const fit = Math.min(vw / W, (vh - (vw > 640 ? 72 : 0)) / H)
-    // integer scale keeps every art pixel the same size; phones get 2x and a scrolling camera
-    scale = Math.max(2, Math.floor(fit))
-    if (fit < 2 && vw / W >= 1.5) scale = fit
+    // Round up to whole device pixels (every art pixel the same size) when that crops
+    // under 8% more; otherwise use the exact cover scale, whose uneven pixels are a
+    // single device pixel apart and barely visible.
+    const cover = Math.max((vw * dpr) / W, (vh * dpr) / H)
+    scale = (Math.ceil(cover) / cover <= 1.08 ? Math.ceil(cover) : cover) / dpr
     updateCamera(1)
   }
 
   function updateCamera(k: number) {
     const viewW = vw / scale
     const viewH = vh / scale
-    const tx = viewW >= W ? (W - viewW) / 2 : Math.max(0, Math.min(W - viewW, player.x - viewW / 2))
-    const top = vw > 640 ? 72 / scale : 0
-    const ty = viewH - top >= H ? (H - viewH - top) / 2 : Math.max(-top, Math.min(H - viewH, player.y - 30 - viewH / 2))
+    const tx = Math.max(0, Math.min(W - viewW, player.x - viewW / 2))
+    const ty = Math.max(0, Math.min(H - viewH, player.y - 40 - viewH / 2))
     camX += (tx - camX) * k
     camY += (ty - camY) * k
   }
@@ -380,7 +380,7 @@ export function createGame(d: GameDeps) {
     ctx.setTransform(1, 0, 0, 1, 0, 0)
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     ctx.imageSmoothingEnabled = false
-    ctx.setTransform(dpr * scale, 0, 0, dpr * scale, -camX * dpr * scale, -camY * dpr * scale)
+    ctx.setTransform(dpr * scale, 0, 0, dpr * scale, Math.round(-camX * dpr * scale), Math.round(-camY * dpr * scale))
 
     ctx.drawImage(bg, 0, 0)
     const night = state.nightAmt > 0.5
