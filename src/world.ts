@@ -65,6 +65,7 @@ export const OBJECTS: WorldObject[] = [
   o('jersey', 'jersey_frame', 274, 16, 'wall'),
   o('window_b', 'window_day', 302, 14, 'wall'),
   o('sports_rack', 'sports_rack', 350, 16, 'wall'),
+  o('string_lights', 'string_lights', 228, 2, 'wall'),
 
   // rugs
   o('rug_work', 'rug_work', 24, 140, 'floor'),
@@ -165,6 +166,8 @@ export const LIGHTS: Light[] = [
   { x: 85, y: 200, r: 20, c: '255,220,120' },
   { x: 121, y: 196, r: 22, c: '90,255,140' }, // server LEDs
   { x: 317, y: 82, r: 30, c: '255,190,90', when: 'radio' },
+  // fairy lights along the den wall
+  ...[240, 266, 292, 318, 344, 370].map((x) => ({ x, y: 8, r: 14, c: '255,214,140' })),
 ]
 
 export const SPAWN: [number, number] = [200, 160]

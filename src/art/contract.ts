@@ -31,6 +31,7 @@ export const SPRITE_SIZES = {
   window_night: [40, 30], // dark blue, moon, stars, lit skyline windows
   jersey_frame: [22, 28], // framed blue/white basketball jersey number 77
   sports_rack: [28, 30], // wall rack: badminton racket + cricket bat crossed
+  string_lights: [156, 10], // warm fairy lights draped along the top of the den wall
 
   // work half (floor, anchored bottom-centre)
   ws_proploy: [52, 40], // desk + monitor reading "PROPLOY" + chair in front
