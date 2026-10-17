@@ -98,6 +98,11 @@ export const OBJECTS: WorldObject[] = [
   o('tv', 'tv_stand', 284, 208),
   o('ball', 'basketball', 352, 222, 'obj', { solid: false }),
   o('plant_den', 'plant_tall', 380, 214),
+  o('bean_bag', 'bean_bag', 342, 128),
+  o('cat_tree', 'cat_tree', 368, 150),
+  o('cat_bowl', 'cat_bowl', 348, 188, 'obj', { solid: false }),
+  o('record_crate', 'record_crate', 220, 216),
+  o('floor_cushion', 'floor_cushion', 246, 230, 'obj', { solid: false }),
 ]
 
 export const byId = Object.fromEntries(OBJECTS.map((ob) => [ob.id, ob])) as Record<string, WorldObject>

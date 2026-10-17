@@ -60,6 +60,11 @@ export const SPRITE_SIZES = {
   lamp_on: [12, 36], // floor lamp, warm shade lit
   lamp_off: [12, 36],
   basketball: [10, 10],
+  bean_bag: [26, 18], // slouchy sunflower-yellow bean bag
+  cat_tree: [16, 34], // scratching post with two platforms and a dangling toy
+  cat_bowl: [10, 5], // food bowl with kibble
+  record_crate: [20, 16], // wooden crate of vinyl records, sleeves visible
+  floor_cushion: [20, 10], // flat round floor cushion
 
   // cat (sits on the sofa; engine positions it)
   cat_sleep_0: [16, 9], // curled orange cat
