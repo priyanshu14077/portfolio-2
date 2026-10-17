@@ -1,155 +1,325 @@
 // The player character: 16x24, four directions, idle + 4-frame walk.
+// Drawn from ASCII maps: head per direction, then torso, arms and legs per
+// frame. Light comes from the top-left. A selective outline tints each edge
+// pixel by the material it wraps (hair, skin, shirt, denim, sneaker).
 
 import { PAL, type HeroDir } from '../contract'
-import { type Ctx, outline, pattern, rect } from '../draw'
+import { type Ctx, pattern } from '../draw'
 
-const HC = {
-  o: '#1a1220',
-  h: '#1d1512',
-  H: '#3d2c22',
-  s: '#b5754a',
-  S: '#8f5534',
-  m: '#6e3a22',
-  e: '#120a08',
+const C: Record<string, string> = {
+  // hair
+  a: '#5a4234',
+  h: '#2e211b',
+  d: '#1d1411',
+  // skin
+  l: '#dc9a6e',
+  s: '#bb7a4f',
+  S: '#94593a',
+  m: '#6e3426',
+  r: '#cf7a5c',
+  F: '#7c4a33',
+  // eyes
+  e: '#1f1416',
+  w: '#fff6e8',
+  // shirt
+  t: '#ffe486',
   y: PAL.sun,
   Y: PAL.sunDeep,
-  t: '#ffe27a',
-  j: '#2a4785',
-  J: '#1b2f5e',
-  k: '#f4f8ff',
-  K: '#b9cdfa',
-} as const
+  D: '#b26c0e',
+  f: '#c88410',
+  // jeans
+  L: '#4b70ba',
+  j: '#2d4b8c',
+  J: '#1e3466',
+  q: '#16264f',
+  // sneakers
+  k: '#f6f9ff',
+  K: '#c3cde8',
+  z: '#7d87aa',
+  x: '#a9b3d2',
+}
+
+// Outline colour per material, keyed by the fill it touches.
+const EDGE: [string, string][] = [
+  ['adh', '#140c0b'],
+  ['lsSmrFew', '#4a2216'],
+  ['tyYDf', '#6a3a0a'],
+  ['LjJq', '#0e1636'],
+  ['kKzx', '#262a4a'],
+]
+
+// ---------------------------------------------------------------- heads (rows 0..10)
+
+const HEAD_DOWN = [
+  '................',
+  '....hhhh.hhh....',
+  '...haahhhhhhh...',
+  '..haahhaahhhhd..',
+  '..hhhhaahhhdhd..',
+  '..hdhhdhhdhhdd..',
+  '..hdllhlllhsdd..',
+  '..sdlellssesdS..',
+  '..sdlellssesdS..',
+  '...dlrmssmrSd...',
+  '.....ssmmSS.....',
+]
+
+const HEAD_UP = [
+  '................',
+  '....hhhh.hhh....',
+  '...haahhhhhhh...',
+  '..haahhaahhhhd..',
+  '..hhhhaahhhdhd..',
+  '..haahhhhaahdd..',
+  '..hhhaahhhhddd..',
+  '..shhhhhahhddS..',
+  '..shdhhdhhdddS..',
+  '...hdhhdhhdd....',
+  '......sSSS......',
+]
 
 const HEAD_RIGHT = [
   '................',
-  '....h.hhHhh.....',
-  '....hhhhHhhh....',
-  '...hhhHhhhhhh...',
-  '...hhhhhhhhhhh..',
-  '...hhhhhhhssss..',
-  '...hhhhhSssess..',
-  '...hhhhhSssesss.',
-  '....hhhhssssms..',
-  '.....hhsssss....',
-  '.......SS.......',
+  '.....hhhh.hh....',
+  '....haahhhhhh...',
+  '...haahhaahhh...',
+  '...hhhhaahhhhd..',
+  '...haahhhhdhdd..',
+  '...hhaahdlllls..',
+  '...hhhdsSllels..',
+  '...hhdhsSllelss.',
+  '...hdhdSlllsmS..',
+  '......dSsssS....',
 ]
 
+const mirror = (rows: readonly string[]) => rows.map((r) => [...r].reverse().join(''))
+
 const HEAD: Record<HeroDir, readonly string[]> = {
-  down: [
-    '................',
-    '....h.hhHhh.....',
-    '...hhhhHhhhh....',
-    '...hhhHhhhhhh...',
-    '...hhhhhhhhhh...',
-    '...hhshhhhshh...',
-    '..ShsesssseshS..',
-    '..ShsesssseshS..',
-    '....sssmmsss....',
-    '.....SssssS.....',
-    '.......SS.......',
-  ],
-  up: [
-    '................',
-    '....h.hhHhh.....',
-    '...hhhhHhhhh....',
-    '...hhhHhhhhhh...',
-    '...hhhhhhhhhh...',
-    '...hhhhHhhhhh...',
-    '..ShhhhhhhhhhS..',
-    '..ShhhhhhhhhhS..',
-    '....hhhhhhhh....',
-    '.....hSSSSh.....',
-    '.......SS.......',
-  ],
+  down: HEAD_DOWN,
+  up: HEAD_UP,
   right: HEAD_RIGHT,
-  left: HEAD_RIGHT.map((r) => [...r].reverse().join('')),
+  left: mirror(HEAD_RIGHT),
+}
+
+// ---------------------------------------------------------------- front / back
+
+// Torso rows 11..15, cols 4..11 (arms drawn separately).
+const TORSO_DOWN = [
+  '...tttySSyyyY...',
+  '....tyyyyyyY....',
+  '....tyyyyDDY....',
+  '....tyyyyYYY....',
+  '....YYYYYYYD....',
+]
+const TORSO_UP = [
+  '...tttyyyyyY....',
+  '....tyyyyyyY....',
+  '....tyyyyyyY....',
+  '....tyyyyyYY....',
+  '....YYYYYYYD....',
+]
+
+// Legs from the hip row down to row 22. Index = frame.
+const LEGS_FRONT: readonly (readonly string[])[] = [
+  [
+    '....LLjjjjjJ....',
+    '....LjjJJjjJ....',
+    '....LjJ..LjJ....',
+    '....LjJ..LjJ....',
+    '....LjJ..LjJ....',
+    '...kkkK..kkkK...',
+    '...zzzz..zzzz...',
+  ],
+  [
+    '....LLjjjjjJ....',
+    '....LjJJJjjJ....',
+    '....LjJ..LjJ....',
+    '....LjJ..LjJ....',
+    '...kkkK..KkkK...',
+    '...zzzz..zzzz...',
+  ],
+  [
+    '....LLjjjjjJ....',
+    '....LjjJJjjJ....',
+    '....LjJ..LjJ....',
+    '....LjJ..kkkK...',
+    '....LjJ..zzzz...',
+    '...kkkK.........',
+    '...zzzz.........',
+  ],
+  [
+    '....LLjjjjjJ....',
+    '....LjjJJJjJ....',
+    '....LjJ..LjJ....',
+    '....LjJ..LjJ....',
+    '...KkkK..kkkK...',
+    '...zzzz..zzzz...',
+  ],
+  [
+    '....LLjjjjjJ....',
+    '....LjjJJjjJ....',
+    '....LjJ..LjJ....',
+    '...kkkK..LjJ....',
+    '...zzzz..LjJ....',
+    '.........kkkK...',
+    '.........zzzz...',
+  ],
+]
+
+// Body offset per frame: contact frames sit 1px lower than passing frames.
+const BOB = [0, 1, 0, 1, 0]
+// Near/right-hand arm swing per frame: -1 back, 0 at side, +1 forward.
+const SWING = [0, -1, 0, 1, 0]
+
+function frontArm(g: Ctx, x: number, y: number, len: number, lit: boolean): void {
+  const sleeve = lit ? 'ty' : 'yY'
+  const skin = lit ? 'ls' : 'sS'
+  const rows = [sleeve, lit ? 'yy' : 'yD']
+  for (let i = 0; i < len - 3; i++) rows.push(skin)
+  rows.push(lit ? 'sS' : 'SF')
+  pattern(g, x, y, rows, C)
 }
 
 function heroFront(g: Ctx, dir: 'down' | 'up', f: number): void {
-  const lift = ([[0, 0], [1, 0], [0, 0], [0, 1], [0, 0]] as const)[f] ?? [0, 0]
-  const swing = [0, 1, 0, -1, 0][f] ?? 0
-  const bob = f === 2 || f === 4 ? 1 : 0
-  // legs
-  rect(g, 4, 17, 8, 1, HC.j)
-  const leg = (x: number, l: number, innerX: number, shoeX: number) => {
-    rect(g, x, 18, 3, 3 - l, HC.j)
-    rect(g, innerX, 18, 1, 3 - l, HC.J)
-    rect(g, shoeX, 21 - l, 4, 2, HC.k)
-    rect(g, shoeX, 22 - l, 4, 1, HC.K)
-  }
-  leg(4, lift[0], 6, 3)
-  leg(9, lift[1], 9, 9)
-  // torso
-  const y = bob
-  rect(g, 3, 11 + y, 10, 1, HC.y)
-  rect(g, 4, 12 + y, 8, 5, HC.y)
-  rect(g, 3, 11 + y, 5, 1, HC.t)
-  rect(g, 11, 12 + y, 1, 5, HC.Y)
-  rect(g, 4, 16 + y, 8, 1, HC.Y)
-  if (dir === 'down') {
-    rect(g, 7, 11 + y, 2, 1, HC.S)
-  } else {
-    rect(g, 7, 12 + y, 2, 3, HC.Y)
-  }
-  // arms: the forward arm reads 1px longer
-  const arm = (x: number, len: number, outer: number) => {
-    rect(g, x, 12 + y, 2, 2, HC.y)
-    rect(g, outer, 12 + y, 1, 2, HC.Y)
-    rect(g, x, 14 + y, 2, len - 2, HC.s)
-    rect(g, x, 12 + y + len - 1, 2, 1, HC.S)
-  }
-  arm(1, 4 + swing, 1)
-  arm(13, 4 - swing, 14)
-  pattern(g, 0, y, HEAD[dir], HC)
+  const b = BOB[f] ?? 0
+  const sw = SWING[f] ?? 0
+  const legs = LEGS_FRONT[f] ?? LEGS_FRONT[0]!
+  pattern(g, 0, 23 - legs.length, legs, C)
+  pattern(g, 0, 11 + b, dir === 'down' ? TORSO_DOWN : TORSO_UP, C)
+  // facing the viewer the left arm is the character's right; seen from the back it flips
+  const s = dir === 'down' ? sw : -sw
+  frontArm(g, 2, 12 + b, 5 + s, true)
+  frontArm(g, 12, 12 + b, 5 - s, false)
+  pattern(g, 0, b, HEAD[dir], C)
 }
 
+// ---------------------------------------------------------------- side (drawn facing right)
+
+const TORSO_SIDE = [
+  '.....ttyyyY.....',
+  '.....tyyyyY.....',
+  '.....tyyyyY.....',
+  '.....tyyyYY.....',
+  '.....YYYYYD.....',
+]
+
+// Near arm overlays (cols absolute, rows from shoulder) for swing -1, 0, +1.
+const ARM_SIDE: Record<number, readonly string[]> = {
+  [-1]: [
+    '......tY........',
+    '.....tyD........',
+    '....lsD.........',
+    '...lsS..........',
+    '...sS...........',
+  ],
+  0: [
+    '.......tY.......',
+    '.......yY.......',
+    '.......lS.......',
+    '.......lS.......',
+    '.......sS.......',
+  ],
+  1: [
+    '.......tY.......',
+    '.......yyD......',
+    '........lsD.....',
+    '.........lsS....',
+    '..........sS....',
+  ],
+}
+// The far arm peeks out on the opposite side when the near arm swings.
+const FAR_ARM_SIDE: Record<number, readonly string[]> = {
+  [-1]: ['................', '................', '...........fF...', '...........FF...', '............F...'],
+  1: ['................', '................', '...fF...........', '...FF...........', '...F............'],
+}
+
+const LEGS_SIDE: readonly (readonly string[])[] = [
+  [
+    '.....LLjjjJ.....',
+    '......LjjJq.....',
+    '......LjjJq.....',
+    '......LjjJq.....',
+    '......LjjJq.....',
+    '......kkkkkK....',
+    '......zzzzzz....',
+  ],
+  [
+    '.....LLjjjJ.....',
+    '....qqqLjJ......',
+    '...qqq..LjJ.....',
+    '..qqq....LjJ....',
+    '.xxxx....kkkkK..',
+    '..zzzz...zzzzz..',
+  ],
+  [
+    '.....LLjjjJ.....',
+    '......LjjJq.....',
+    '......LjjJq.....',
+    '....xqLjjJ......',
+    '...xxxLjjJ......',
+    '...zzzkkkkkK....',
+    '......zzzzzz....',
+  ],
+  [
+    '.....LLjjjJ.....',
+    '....LjJqqqq.....',
+    '...LjJ..qqq.....',
+    '..LjJ....qqq....',
+    '.kkkK....xxxx...',
+    '..zzzz...zzzzz..',
+  ],
+  [
+    '.....LLjjjJ.....',
+    '......LjjJq.....',
+    '......LjjJq.....',
+    '....LjJLjJq.....',
+    '...kkkKLjJ......',
+    '...zzzzxxxxx....',
+    '.......zzzzz....',
+  ],
+]
+
 function heroSide(g: Ctx, flip: boolean, f: number): void {
-  const R = (x: number, yy: number, w: number, h: number, c: string) => rect(g, flip ? 16 - x - w : x, yy, w, h, c)
-  // [frontDx, backDx, frontLift, backLift, armSwing, bob]
-  const F = ([
-    [1, 0, 0, 0, 0, 0],
-    [3, -2, 0, 0, -2, 1],
-    [1, 0, 0, 1, 0, 0],
-    [-2, 3, 0, 0, 2, 1],
-    [0, 1, 1, 0, 0, 0],
-  ] as const)[f] ?? [1, 0, 0, 0, 0, 0]
-  const [fdx, bdx, fl, bl, swing, bob] = F
-  const leg = (dx: number, l: number, col: string, shoe: string) => {
-    R(6 + Math.round(dx / 2), 18, 3, 1, col)
-    R(6 + dx, 19, 3, 2 - l, col)
-    R(6 + dx, 21 - l, 4, 2, shoe)
-    R(6 + dx, 22 - l, 4, 1, HC.K)
+  const b = BOB[f] ?? 0
+  const sw = SWING[f] ?? 0
+  const legs = LEGS_SIDE[f] ?? LEGS_SIDE[0]!
+  const m = (rows: readonly string[]) => (flip ? mirror(rows) : rows)
+  const far = FAR_ARM_SIDE[sw]
+  if (far) pattern(g, 0, 11 + b, m(far), C)
+  pattern(g, 0, 23 - legs.length, m(legs), C)
+  pattern(g, 0, 11 + b, m(TORSO_SIDE), C)
+  pattern(g, 0, b, HEAD[flip ? 'left' : 'right'], C)
+  pattern(g, 0, 11 + b, m(ARM_SIDE[sw] ?? ARM_SIDE[0]!), C)
+}
+
+// ---------------------------------------------------------------- outline
+
+function selout(g: Ctx): void {
+  const { width: w, height: h } = g.canvas
+  const img = g.getImageData(0, 0, w, h)
+  const a = img.data
+  const edgeOf = new Map<string, string>()
+  for (const [keys, col] of EDGE) for (const k of keys) if (C[k]) edgeOf.set(C[k]!.toLowerCase(), col)
+  const hexAt = (x: number, y: number) => {
+    const i = (y * w + x) * 4
+    return '#' + [a[i], a[i + 1], a[i + 2]].map((v) => (v ?? 0).toString(16).padStart(2, '0')).join('')
   }
-  // far arm peeks out when swung
-  if (swing !== 0) {
-    R(7, 12 + bob, 2, 2, '#c98a10')
-    R(7 - swing / 2, 14 + bob, 2, 1, HC.S)
-    R(7 - swing, 15 + bob, 2, 1, HC.S)
+  const solid = (x: number, y: number) => x >= 0 && y >= 0 && x < w && y < h && (a[(y * w + x) * 4 + 3] ?? 0) > 0
+  const marks: [number, number, string][] = []
+  for (let y = 0; y < h; y++)
+    for (let x = 0; x < w; x++) {
+      if (solid(x, y)) continue
+      const n = ([[x, y + 1], [x, y - 1], [x - 1, y], [x + 1, y]] as const).find(([nx, ny]) => solid(nx, ny))
+      if (n) marks.push([x, y, edgeOf.get(hexAt(n[0], n[1])) ?? '#1c1420'])
+    }
+  for (const [x, y, col] of marks) {
+    g.fillStyle = col
+    g.fillRect(x, y, 1, 1)
   }
-  leg(bdx, bl, HC.J, '#d3ddf2')
-  R(5, 17, 6, 1, HC.j)
-  leg(fdx, fl, HC.j, HC.k)
-  // torso
-  R(4, 11 + bob, 8, 6, HC.y)
-  R(4, 11 + bob, 8, 1, HC.t)
-  R(11, 12 + bob, 1, 5, HC.Y)
-  R(4, 16 + bob, 8, 1, HC.Y)
-  pattern(g, 0, bob, HEAD[flip ? 'left' : 'right'], HC)
-  // near arm, outlined so it separates from the torso
-  const segs: [number, number, number, string][] = [
-    [7, 11 + bob, 3, HC.Y],
-    [7 + swing / 2, 14 + bob, 1, HC.s],
-    [7 + swing, 15 + bob, 1, HC.s],
-    [7 + swing, 16 + bob, 1, HC.S],
-  ]
-  for (const [x, yy, h] of segs) R(x - 1, yy, 1, h, HC.o)
-  R(7 + swing, 17 + bob, 2, 1, HC.o)
-  for (const [x, yy, h, c] of segs) R(x, yy, 2, h, c)
-  R(7, 11 + bob, 2, 1, HC.y)
 }
 
 export function drawHero(g: Ctx, dir: HeroDir, f: number): void {
   if (dir === 'down' || dir === 'up') heroFront(g, dir, f)
   else heroSide(g, dir === 'left', f)
-  outline(g, HC.o)
+  selout(g)
 }
