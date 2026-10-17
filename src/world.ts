@@ -23,7 +23,7 @@ export interface WorldObject {
   on?: string
 }
 
-export type Action = 'pet' | 'night' | 'ball' | 'radio'
+export type Action = 'pet' | 'night' | 'ball' | 'radio' | 'quip'
 
 export interface Hotspot {
   id: string
@@ -33,6 +33,7 @@ export interface Hotspot {
   face: HeroDir
   panel?: PanelKey
   action?: Action
+  quips?: string[] // lines cycled by the 'quip' action
   zone: 'work' | 'den'
 }
 

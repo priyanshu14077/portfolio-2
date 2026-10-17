@@ -271,6 +271,8 @@ export function createGame(d: GameDeps) {
   }
 
   // --- interactions ---------------------------------------------------------
+  const quipCount = new Map<string, number>()
+
   function interact(h: Hotspot) {
     player.dir = h.face
     sfx.blip()
@@ -294,6 +296,13 @@ export function createGame(d: GameDeps) {
         sfx.bounce()
         say(['Dončić step-back. Nothing but net.', 'Luka would have hit that from the logo.', 'Brick. Back to work.'][Math.floor(Math.random() * 3)])
         return
+      case 'quip': {
+        const lines = h.quips ?? []
+        const n = (quipCount.get(h.id) ?? 0) + 1
+        quipCount.set(h.id, n)
+        if (lines.length) say(lines[(n - 1) % lines.length])
+        return
+      }
       case 'radio':
         if (!radio.state.station)
           radio.toggle()?.catch(() => d.toast('YouTube is blocked here, so the radio can’t play.'))
