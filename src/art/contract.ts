@@ -66,6 +66,15 @@ export const SPRITE_SIZES = {
   record_crate: [20, 16], // wooden crate of vinyl records, sleeves visible
   floor_cushion: [20, 10], // flat round floor cushion
 
+  // extras (src/art/sprites/extra.ts)
+  cable_tray: [164, 6], // wall: ceiling-height cable tray running along the work wall, cables drooping
+  whiteboard_easel: [24, 30], // floor: rolling whiteboard with a system diagram, marker tray
+  coffee_station: [20, 24], // floor: small cabinet with an espresso machine, mugs, a sunflower sticker
+  fish_tank: [28, 26], // floor: aquarium on a wooden stand, two orange fish, plants, bubbles
+  shoe_rack: [24, 14], // floor: low rack with sneakers (one pair of basketball shoes)
+  monstera: [18, 26], // floor: big-leaf monstera in a cobalt pot
+  speaker_shelf: [16, 22], // floor: small shelf with a bookshelf speaker and a vinyl sleeve leaning
+
   // cat (sits on the sofa; engine positions it)
   cat_sleep_0: [16, 9], // curled orange cat
   cat_sleep_1: [16, 9], // breathing frame (1px taller back)

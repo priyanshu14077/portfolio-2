@@ -4,6 +4,7 @@
 import { HERO_SIZE, SPRITE_SIZES, type HeroDir, type HeroSpriteId, type Sprite, type SpriteId, type StaticSpriteId } from './contract'
 import { makeCanvas } from './draw'
 import { DEN } from './sprites/den'
+import { EXTRA } from './sprites/extra'
 import { drawHero } from './sprites/hero'
 import type { DrawFn } from './sprites/palette'
 import { ROOM } from './sprites/room'
@@ -12,7 +13,7 @@ import { WORK } from './sprites/work'
 
 export { pixelText } from './font'
 
-const STATIC = { ...ROOM, ...WALL, ...WORK, ...DEN } satisfies Record<StaticSpriteId, DrawFn>
+const STATIC = { ...ROOM, ...WALL, ...WORK, ...DEN, ...EXTRA } satisfies Record<StaticSpriteId, DrawFn>
 
 export const HERO_DIRS: readonly HeroDir[] = ['down', 'up', 'left', 'right']
 export const HERO_FRAMES = [0, 1, 2, 3, 4] as const
