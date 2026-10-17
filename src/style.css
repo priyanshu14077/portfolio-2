@@ -738,3 +738,69 @@ figcaption {
 .clock small {
   color: var(--muted);
 }
+
+.stations {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 8px;
+}
+
+.station {
+  display: grid;
+  text-align: left;
+  padding: 10px 12px;
+  background: var(--well);
+  border: 2px solid var(--line);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.station:hover {
+  background: var(--cobalt);
+}
+
+.station.on {
+  background: var(--sun);
+  color: var(--line);
+}
+
+.station b {
+  font-family: var(--font-head);
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.station small {
+  opacity: 0.75;
+}
+
+.status {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  background: var(--well);
+  border: 2px solid var(--line);
+  border-left: 6px solid var(--muted);
+  border-radius: 4px;
+}
+
+.status.open {
+  border-left-color: var(--sun);
+}
+
+.status-head {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-family: var(--font-head);
+  color: var(--sun);
+}
+
+.status-head i {
+  width: 12px;
+  height: 12px;
+  background: var(--sun);
+  animation: pulse 1.6s infinite;
+  box-shadow: 0 0 0 3px rgba(255, 201, 40, 0.3);
+}
+
