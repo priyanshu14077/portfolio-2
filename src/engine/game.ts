@@ -443,7 +443,7 @@ export function createGame(d: GameDeps) {
       let base = ob.y + hgt
       if (ob.on) base = byId[ob.on].y + rectOf(byId[ob.on])[3] + 0.5
       let id: SpriteId = ob.s
-      if (ob.id === 'radio' && radio.state.playing) id = Math.floor(state.t * 4) % 2 ? 'radio_1' : 'radio_0'
+      if (ob.id === 'radio' && radio.state.playing) id = 'radio_1'
       if (ob.id === 'lamp') id = state.night ? 'lamp_on' : 'lamp_off'
       let y = ob.y
       if (ob.id === 'ball' && state.ballT >= 0) y -= Math.abs(Math.sin(state.ballT * Math.PI * 2.5)) * 14 * (1 - state.ballT / 1.2)
