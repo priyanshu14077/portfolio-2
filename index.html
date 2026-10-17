@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Priyanshu Kumar Singh · Ops Room</title>
+    <meta name="description" content="Forward deployed engineer. Walk around my pixel ops room: client deployments on the desks, builds in the arcade, writing on the shelf, and a cat on the sofa." />
+    <meta name="theme-color" content="#1546c4" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Silkscreen&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <a class="skip" href="https://www.priyanshu14xdevs.in">Skip the game: open the classic portfolio</a>
+    <canvas id="game" tabindex="0" aria-label="Pixel ops room. Walk with WASD or the arrow keys, press E to interact, or use the menu."></canvas>
+
+    <div id="hud" hidden>
+      <div class="who">
+        <div class="avatar"><canvas width="16" height="16" aria-hidden="true"></canvas></div>
+        <div class="who-text">
+          <b id="profile-name"></b>
+          <small id="profile-role"></small>
+          <div class="progress-row">
+            <div class="progress"><div id="progress-bar"></div></div>
+            <small id="progress-text"></small>
+          </div>
+        </div>
+      </div>
+      <div class="buttons">
+        <button class="pixel-btn status-btn" id="btn-status" title="Availability"><i></i><span>Open to work</span></button>
+        <button class="pixel-btn" id="btn-menu" title="Quick menu (skip the walking)">☰ <span>Menu</span></button>
+        <a class="pixel-btn icon" id="btn-classic" title="Classic site" target="_blank" rel="noopener">↗</a>
+        <button class="pixel-btn icon" id="btn-night" title="Night mode (N)">☾</button>
+        <button class="pixel-btn icon" id="btn-music" title="Radio (M)">♪</button>
+        <button class="pixel-btn icon on" id="btn-sound" title="Sound effects">🔊</button>
+      </div>
+      <div id="pad" aria-label="Movement controls">
+        <div class="dpad">
+          <button class="up" data-key="w" aria-label="Walk up">▲</button>
+          <button class="left" data-key="a" aria-label="Walk left">◀</button>
+          <button class="down" data-key="s" aria-label="Walk down">▼</button>
+          <button class="right" data-key="d" aria-label="Walk right">▶</button>
+        </div>
+        <div class="actions">
+          <button class="act" data-key="e" aria-label="Interact">E<small>use</small></button>
+          <button class="run" data-key="shift" aria-label="Hold to run">⇧<small>run</small></button>
+        </div>
+      </div>
+      <div id="hint"></div>
+    </div>
+
+    <div id="menu" class="modal" hidden>
+      <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+        <header>
+          <span class="icon">☰</span>
+          <div><h2 id="menu-title">Quick menu</h2><small>In a hurry? Pick a spot and I'll walk there. Shift-click opens it straight away.</small></div>
+          <button class="close" aria-label="Close">✕</button>
+        </header>
+        <div class="menu-list"></div>
+      </div>
+    </div>
+
+    <div id="panel" class="modal" hidden>
+      <div class="sheet" role="dialog" aria-modal="true">
+        <button class="close" aria-label="Close">✕</button>
+        <div id="panel-body"></div>
+      </div>
+    </div>
+
+    <aside id="radio-dock" hidden aria-label="Studio radio">
+      <div class="radio-bar">
+        <span class="radio-led"></span>
+        <span class="radio-now"></span>
+        <button class="radio-next" aria-label="Next station">⏭</button>
+        <button class="radio-stop" aria-label="Turn the radio off">✕</button>
+      </div>
+      <div class="yt-host"></div>
+    </aside>
+
+    <div id="toasts" aria-live="polite"></div>
+
+    <noscript>
+      <p class="noscript">This portfolio is a small game and needs JavaScript. The classic version is at <a href="https://www.priyanshu14xdevs.in">priyanshu14xdevs.in</a>.</p>
+    </noscript>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
