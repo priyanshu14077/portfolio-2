@@ -116,6 +116,7 @@ export function createGame(d: GameDeps) {
     canvas.height = Math.round(vh * dpr)
     canvas.style.width = vw + 'px'
     canvas.style.height = vh + 'px'
+    // cover the whole viewport; the camera follows the hero over whatever is cropped.
     // Round up to whole device pixels (every art pixel the same size) when that crops
     // under 8% more; otherwise use the exact cover scale, whose uneven pixels are a
     // single device pixel apart and barely visible.
