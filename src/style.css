@@ -358,3 +358,115 @@ a.pixel-btn {
   font-size: 9px;
 }
 
+/* ---------- modals ---------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(6, 22, 70, 0.5);
+  opacity: 0;
+  transition: opacity 0.18s;
+}
+
+.modal.open {
+  opacity: 1;
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.sheet {
+  position: relative;
+  width: min(600px, 100%);
+  max-height: min(84vh, 900px);
+  overflow: auto;
+  background: var(--cobalt-deep);
+  border-radius: 6px;
+  box-shadow:
+    0 0 0 4px var(--sun),
+    0 0 0 8px var(--line),
+    0 18px 40px rgba(0, 10, 40, 0.5);
+  transform: translateY(14px) scale(0.97);
+  transition: transform 0.18s;
+  overscroll-behavior: contain;
+  scrollbar-color: var(--cobalt-raised) transparent;
+}
+
+.modal.open .sheet {
+  transform: none;
+}
+
+.sheet header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 56px 14px 16px;
+  background: var(--cobalt);
+  border-bottom: 3px solid var(--line);
+}
+
+.sheet header .icon {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  background: var(--line);
+  border-radius: 4px;
+  color: var(--sun);
+  font-size: 20px;
+}
+
+.sheet h2 {
+  margin: 0;
+  font-family: var(--font-head);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--sun);
+}
+
+.sheet header small {
+  display: block;
+  color: var(--leaf);
+  font-size: 13px;
+  filter: brightness(1.25);
+}
+
+.sheet .close {
+  position: absolute;
+  right: 12px;
+  top: 14px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--line);
+  border-radius: 4px;
+  background: var(--red);
+  color: #fff;
+  font-family: var(--font-head);
+  cursor: pointer;
+  box-shadow: 0 3px 0 var(--line);
+}
+
+#menu .sheet {
+  width: min(720px, 100%);
+}
+
+#menu .sheet header {
+  padding-right: 16px;
+}
+
+#menu .sheet header .close {
+  position: static;
+  margin-left: auto;
+  flex: none;
+}
+
