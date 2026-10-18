@@ -15,6 +15,8 @@ export type Section =
   | { type: 'clock'; tz: string; label: string }
   | { type: 'radio' }
   | { type: 'status' }
+  // live GitHub heatmap from /api/contributions; `total` shows until it loads or if it fails
+  | { type: 'contributions'; total: string }
 
 export type PanelKey =
   | 'about'
