@@ -53,7 +53,7 @@ export async function GET(): Promise<Response> {
     const token = process.env.GITHUB_TOKEN
     const data = token ? await fromGraphQL(token).catch(fromPage) : await fromPage()
     return Response.json(data, {
-      headers: { 'cache-control': 'public, max-age=600, s-maxage=21600, stale-while-revalidate=86400' },
+      headers: { 'cache-control': 'public, max-age=600, s-maxage=3600, stale-while-revalidate=600' },
     })
   } catch (err) {
     return Response.json({ error: String(err) }, { status: 502, headers: { 'cache-control': 'no-store' } })

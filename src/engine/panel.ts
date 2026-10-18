@@ -107,7 +107,7 @@ function section(s: Section, content: Content, radio: Radio): string {
     case 'contributions':
       return `<section class="contrib"><div class="stats"><div><b data-k="total">${esc(s.total)}</b><small>contributions in the last year</small></div>
         <div><b data-k="best">-</b><small>busiest day</small></div><div><b data-k="streak">-</b><small>day streak</small></div></div>
-        <div class="heat" aria-hidden="true"></div><p class="fine">Live from GitHub, refreshed every few hours.</p></section>`
+        <div class="heat" aria-hidden="true"></div><p class="fine">Live from GitHub, refreshed hourly.</p></section>`
   }
 }
 

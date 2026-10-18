@@ -142,7 +142,7 @@ The six stations are the YouTube playlists from the classic site. Each station p
 
 ### GitHub contributions
 
-The GitHub panel draws a live heatmap from `/api/contributions`, a Vercel function in `api/contributions.ts`. It reads the public contributions page on github.com, so it needs no token; set `GITHUB_TOKEN` in Vercel to use the GraphQL API instead. Vercel's CDN caches the answer for 6 hours. If the request fails, the panel keeps the total written in `content.ts`. In `npm run dev`, `vite.config.ts` serves the same function.
+The GitHub panel draws a live heatmap from `/api/contributions`, a Vercel function in `api/contributions.ts`. It reads the public contributions page on github.com, so it needs no token; set `GITHUB_TOKEN` in Vercel to use the GraphQL API instead. Vercel's CDN caches the answer for an hour. If the request fails, the panel keeps the total written in `content.ts`. In `npm run dev`, `vite.config.ts` serves the same function.
 
 ### Progress
 
