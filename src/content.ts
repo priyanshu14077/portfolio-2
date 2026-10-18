@@ -386,7 +386,7 @@ export const CONTENT: Content = {
       icon: '⌥',
       subtitle: '@priyanshu14077',
       sections: [
-        { type: 'stats', items: [{ value: '1,807', label: 'contributions in the last year' }] },
+        { type: 'contributions', total: '2,100+' },
         {
           type: 'text',
           body: 'Most of my independent builds live here. Prototypes go up with the code, so you can read how they work.',
