@@ -140,6 +140,10 @@ Every panel is data in `src/content.ts`, made of typed sections (`text`, `list`,
 
 The six stations are the YouTube playlists from the classic site. Each station plays its saved track list (`src/data/radio.json`) through the YouTube IFrame API with `loadPlaylist(ids, randomStart)`. YouTube's terms require the player to stay visible at 200×200 or larger, so it sits in a dock while music plays.
 
+### GitHub contributions
+
+The GitHub panel draws a live heatmap from `/api/contributions`, a Vercel function in `api/contributions.ts`. It reads the public contributions page on github.com, so it needs no token; set `GITHUB_TOKEN` in Vercel to use the GraphQL API instead. Vercel's CDN caches the answer for 6 hours. If the request fails, the panel keeps the total written in `content.ts`. In `npm run dev`, `vite.config.ts` serves the same function.
+
 ### Progress
 
 Visited panels are saved in `localStorage` under `ops-room:seen`. The HUD shows how many you've explored, and confetti goes off when you've seen all 18.
@@ -160,6 +164,8 @@ src/
   art/                sprite contract, pixel helpers, font, preview
   art/sprites/        code-drawn art, one module per area: room, wall, work, den, hero, extra
   engine/             game loop, collision/pathfinding, panels, radio, audio
+api/
+  contributions.ts    Vercel function: live GitHub contribution calendar
 ```
 
 ## Deploy
