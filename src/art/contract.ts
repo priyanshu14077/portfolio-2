@@ -40,6 +40,8 @@ export const SPRITE_SIZES = {
   arcade_tether: [28, 38], // arcade cabinet, marquee "TETHER"
   arcade_riverline: [28, 38], // marquee "VOICE", waveform on screen
   arcade_bidwright: [28, 38], // marquee "BID", doc icon on screen
+  arcade_veridoc: [28, 38], // marquee "DOCS", three stacked documents and a check on screen
+  arcade_orqen: [28, 38], // marquee "ORQEN", test rows passing and failing on screen
   server_rack: [22, 44], // rack with blinking LED rows (engine may overlay blinks)
   kiosk: [16, 30], // "whoami" terminal on a stand
   plant_tall: [14, 30],

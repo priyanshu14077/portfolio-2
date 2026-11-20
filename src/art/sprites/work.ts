@@ -429,6 +429,34 @@ const screenBid: ScreenFn = (g, x, y, w, h) => {
   px(g, sx + 1, sy + 1, C.sunDeep)
 }
 
+// Veridoc: invoice, packing list and bill of lading side by side, one flagged.
+const screenVeridoc: ScreenFn = (g, x, y, w, h) => {
+  const dw = 4
+  const dh = Math.min(h - 2, 7)
+  const top = y + Math.floor((h - dh) / 2)
+  const gap = Math.floor((w - dw * 3) / 4)
+  for (let i = 0; i < 3; i++) {
+    const dx = x + gap + i * (dw + gap)
+    rect(g, dx, top, dw, dh, C.ink)
+    rect(g, dx + 1, top + 1, 2, 1, C.cobalt)
+    rect(g, dx + 1, top + 3, 2, 1, C.steel)
+    rect(g, dx + 1, top + 5, 2, 1, i === 1 ? C.red : C.steel)
+  }
+  // link line under the documents: the cross-check
+  rect(g, x + gap + 1, top + dh + 1, w - gap * 2 - 2, 1, C.leaf)
+}
+
+// Orqen: a judging log, rows of tests passing, one failing, one running.
+const screenOrqen: ScreenFn = (g, x, y, w, h) => {
+  const rows = [C.leaf, C.leaf, C.red, C.sun]
+  const n = Math.min(rows.length, Math.floor((h - 1) / 2))
+  for (let i = 0; i < n; i++) {
+    const ry = y + 1 + i * 2
+    px(g, x + 1, ry, rows[i] ?? C.leaf)
+    rect(g, x + 3, ry, w - 6 - (i % 2) * 2, 1, i === n - 1 ? C.screenHi : '#2a4aa0')
+  }
+}
+
 // ---------- server rack ----------
 // The engine overlays 2x1 LEDs at (16, 6 + row*5) for rows 0..5; each unit
 // carries a dark recessed socket around that spot.
@@ -765,6 +793,8 @@ export const WORK = {
   arcade_tether: arcade('TETHER', C.leafDeep, C.leaf, [C.sun, C.leafHi, C.ink], screenTether),
   arcade_riverline: arcade('VOICE', '#7a4fd0', C.sun, [C.sun, C.cobaltHi, C.red], screenVoice),
   arcade_bidwright: arcade('BID', C.cobaltDeep, C.cobaltHi, [C.sun, C.leaf, C.red], screenBid),
+  arcade_veridoc: arcade('DOCS', '#b0562c', C.sun, [C.leaf, C.sun, C.red], screenVeridoc),
+  arcade_orqen: arcade('ORQEN', C.teal, C.sunHi, [C.leaf, C.red, C.sun], screenOrqen),
   server_rack: serverRack,
   kiosk: (g, w) => kiosk(g, w),
   plant_tall: plantTall,
