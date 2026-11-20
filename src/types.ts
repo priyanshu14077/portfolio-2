@@ -28,6 +28,8 @@ export type PanelKey =
   | 'tether'
   | 'riverline'
   | 'bidwright'
+  | 'veridoc'
+  | 'orqen'
   | 'skills'
   | 'github'
   | 'writing'

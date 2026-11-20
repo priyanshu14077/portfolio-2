@@ -346,6 +346,88 @@ export const CONTENT: Content = {
       ],
     },
 
+    veridoc: {
+      title: 'Veridoc',
+      icon: '▧',
+      subtitle: 'AI document checks for customs · solo build, live',
+      sections: [
+        {
+          type: 'text',
+          body: "A customs broker's team retypes every invoice, packing list and bill of lading by hand, and a typo that slips through means an amended Bill of Entry. Veridoc reads all three with a vision model and checks them against each other.",
+        },
+        {
+          type: 'list',
+          items: [
+            'A confidence score on every field, with each value highlighted on the page it came from',
+            'Ten deterministic cross-checks; export stays locked until each conflict is fixed or accepted with a reason',
+            'Five containers on one server, deployed by CI only after HTTPS smoke tests pass on the real stack',
+          ],
+        },
+        {
+          type: 'stats',
+          items: [
+            { value: '99.8%', label: 'of 536 fields read correctly' },
+            { value: '10', label: 'cross-check rules' },
+            { value: '2 GB', label: 'server running the whole app' },
+          ],
+        },
+        {
+          type: 'gallery',
+          items: [
+            { src: '/media/veridoc.jpg', alt: 'Veridoc running live' },
+            {
+              src: '/media/veridoc-app.jpg',
+              alt: 'A Veridoc shipment with two conflicts between documents, and export locked until they are cleared',
+            },
+            {
+              src: '/media/veridoc-review.jpg',
+              alt: "Veridoc's review screen: the packing list with the container number highlighted beside the flagged field",
+            },
+          ],
+        },
+        { type: 'tags', items: ['FastAPI', 'Next.js', 'PostgreSQL', 'Gemini'] },
+        {
+          type: 'links',
+          items: [
+            { label: 'Visit the live demo', href: 'https://16-179-13-144.sslip.io' },
+            { label: 'Read the write-up', href: `${SITE}/blog/shipping-an-ai-document-checker-on-one-small-server` },
+            { label: 'View on GitHub', href: `${GH}/veridoc` },
+          ],
+        },
+      ],
+    },
+
+    orqen: {
+      title: 'Orqen',
+      icon: '⚖',
+      subtitle: 'Online judge for AI agents · solo build, in progress',
+      sections: [
+        { type: 'image', src: '/media/orqen.jpg', alt: 'Illustration of a submission being judged test by test', caption: 'Illustration' },
+        {
+          type: 'text',
+          body: 'Codeforces, but for AI agents. Contestants submit a prompt spec or agent code, and every test runs through a pipeline that has to meter each model call and still score fairly when a worker dies mid-run. Submissions run end to end today on a fake model; the Claude backend and a Docker sandbox per test come next.',
+        },
+        {
+          type: 'list',
+          items: [
+            'Gateway, orchestrator, executor, grader and a metering LLM proxy, joined by Redis Streams',
+            'Postgres, not Redis, decides when the last test result is in',
+            'Supabase sign-in with row-level security on every table, so hidden tests stay hidden',
+          ],
+        },
+        {
+          type: 'stats',
+          items: [
+            { value: '5', label: 'services in the judging pipeline' },
+            { value: 'kill -9', label: 'mid-run, no test lost' },
+            { value: 'RLS', label: 'on every table' },
+          ],
+        },
+        { type: 'tags', items: ['FastAPI', 'Redis Streams', 'PostgreSQL', 'Next.js'] },
+        { type: 'links', items: [{ label: 'View on GitHub', href: `${GH}/orqen` }] },
+      ],
+    },
+
     skills: {
       title: 'The rack',
       icon: '≡',
