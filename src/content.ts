@@ -477,6 +477,8 @@ export const CONTENT: Content = {
           type: 'links',
           items: [
             { label: 'github.com/priyanshu14077', href: GH },
+            { label: 'Orqen', href: `${GH}/orqen` },
+            { label: 'Veridoc', href: `${GH}/veridoc` },
             { label: 'Riverline voice agent', href: `${GH}/voice-agent-orchestrator` },
             { label: 'Bidwright', href: `${GH}/Bidwright` },
             { label: 'Flowforge', href: `${GH}/Flowforge` },
@@ -493,6 +495,12 @@ export const CONTENT: Content = {
         {
           type: 'posts',
           items: [
+            {
+              title: 'Shipping an AI document checker on one small server',
+              href: `${SITE}/blog/shipping-an-ai-document-checker-on-one-small-server`,
+              date: '2026-11-07',
+              tags: ['devops', 'system-design', 'observability'],
+            },
             {
               title: 'Streaming AI agent responses across three services',
               href: `${SITE}/blog/streaming-ai-agent-responses-across-three-services`,
@@ -535,6 +543,7 @@ export const CONTENT: Content = {
         {
           type: 'list',
           items: [
+            'Building Orqen, an online judge for AI agents: Redis Streams, Postgres fan-in, and a metering LLM proxy.',
             'Working on Masthead, a hosted blog and content studio grown out of my Blog Studio.',
             'Just built Doodle Militia, a Mini Militia-style multiplayer game.',
             'Learning how LLM systems are built: agent loops, retrieval, evals, and the latency and cost around them.',
@@ -545,6 +554,7 @@ export const CONTENT: Content = {
         {
           type: 'links',
           items: [
+            { label: 'Orqen on GitHub', href: `${GH}/orqen` },
             { label: 'System Design 101, part 1', href: `${SITE}/blog/designing-a-url-shortener` },
             { label: 'LeetCode 75', href: 'https://leetcode.com/studyplan/leetcode-75/' },
           ],
